@@ -1,0 +1,39 @@
+//Procedure for Insert data into emp table
+CREATE OR REPLACE PROCEDURE insert_employee( 
+	p_id IN EMP.EID%TYPE, 
+	p_name IN EMP.ENAME%TYPE, 
+	p_salary IN EMP.SALARY%TYPE) 
+AS 
+	BEGIN 
+                INSERT INTO EMP ("EID","ENAME", "SALARY") VALUES (p_id, p_name, p_salary); 
+                COMMIT; 
+END; 
+/
+
+//procedure for delete data from emp table
+CREATE OR REPLACE PROCEDURE delete_employee (empId IN EMP.EID%TYPE) 
+AS 
+BEGIN 
+	DELETE FROM emp WHERE EID = empID; 
+END;
+/
+
+//function 
+
+CREATE FUNCTION mul(a IN NUMBER, b IN NUMBER) 
+   RETURN NUMBER  
+   IS c NUMBER;
+   BEGIN 
+      c := a * b; 
+      RETURN(c); 
+    END;
+/
+
+CREATE FUNCTION Addition(a IN NUMBER, b IN NUMBER) 
+   RETURN NUMBER  
+   IS c NUMBER;
+   BEGIN 
+      c := a + b; 
+      RETURN(c); 
+    END;
+/
